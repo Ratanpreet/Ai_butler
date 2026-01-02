@@ -2,27 +2,22 @@ import struct
 import pyaudio
 import pvporcupine
 import speech_recognition as sr
-import pyttsx3
+
 import time
+from utils.audio_helper import speak
 
 from core.config import (
     PICOVOICE_ACCESS_KEY,
     WAKE_WORD_PATH,
     MICROPHONE_INDEX
 )
-
+from core.command_handler import handle
 
 # INITIALIZATIONS
 recognizer = sr.Recognizer()
 
 
-# TTS
-def speak(text: str):
-    engine = pyttsx3.init()
-    engine.setProperty("rate", 170)
-    engine.say(text)
-    engine.runAndWait()
-    engine.stop()
+
 
 # Command listener
 def listen_for_command() -> str | None:
@@ -80,14 +75,14 @@ def start_wake_word_listener():
 
             if keyword_index >= 0:
                 print("Wake word detected!")
-                speak("Yes? How can I help you?")
+                speak("Yes?")
 
                 command = listen_for_command()
                 
                 if command:
                     time.sleep(0.1)
-                    speak(f"You said {command}")
-                    # Later: command_handler.handle(command)
+                    
+                    handle(command)
 
     except KeyboardInterrupt:
         print("\nStopping assistant...")
