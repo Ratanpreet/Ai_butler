@@ -24,17 +24,28 @@ The project focuses on modular design, offline-first architecture, and extensibi
 🚧 Planned Features
 
   📝 To-Do List Management
+  
   ⏱️ Timers & Reminders
+  
   🌐 Web Search with Summarized Answers
+  
   📰 Personalized News Updates
+  
   🌦️ Weather Forecasts
+  
   🎯 Quiz Mode (topic-based, difficulty-aware)
+  
   🧠 Contextual Awareness
+  
 
 ⚙️ Requirements
   OS: Windows 11
+  
   Python: 3.11 (required)
+  
   Microphone: Any working input device
+  
   Picovoice Account: Free tier (for Porcupine access key)
+  
 
 
